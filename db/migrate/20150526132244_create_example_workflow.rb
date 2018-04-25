@@ -2,7 +2,7 @@ class CreateExampleWorkflow < ActiveRecord::Migration
   def self.up
     CustomWorkflow.reset_column_information
     old = CustomWorkflow.where(:name => 'Duration/Done Ratio/Status correlation').first
-    old.destroy if old
+    old.delete if old
 
     CustomWorkflow.create!(:name => 'Duration/Done Ratio/Status correlation', :author => 'anton.argirov@gmail.com', :description => <<EOD, :before_save => <<EOS)
 Set up a correlation between the start date, due date, done ratio and status of issues.
