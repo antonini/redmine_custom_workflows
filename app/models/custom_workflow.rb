@@ -27,7 +27,7 @@ class CustomWorkflow < ActiveRecord::Base
     default_scope { order(:position => :asc) }
     projects_join_table = reflect_on_association(:projects).join_table
   else
-    default_scope :order => 'position ASC'
+    default_scope { order(:position => :asc) }
     projects_join_table = reflect_on_association(:projects).options[:join_table]
   end
 
